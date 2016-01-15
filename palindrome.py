@@ -12,4 +12,4 @@ else:
 	print("It's not a palindrome")
 	
 
-	#return word1==wordreverse
+	
