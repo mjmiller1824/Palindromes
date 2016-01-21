@@ -1,0 +1,86 @@
+<DOCTYPE! HTML>
+<html>
+<head>
+	<title>Palindrome Checker</title>
+	<!-- A little bit of css to make the page less boring-->
+	<style>
+	body{
+		background-color:#99ccff;
+		color:#ccffcc;
+	
+	
+	}
+	button{
+		background-color:#ccaacc;
+		color:#ffffff;
+	
+	}
+	h1{
+		font-family:Arial Black;
+		text-transform:uppercase;
+	    font-size:46px;
+	
+	
+	}
+	</style>
+<script>
+function checkPalindrome(){
+	<!--Get user input and transform it to lower case for comparison. JS considers Anna and anna to be two different words because the first is capitalized not all languages will distinguish between these words-->
+	var userInput=prompt("Enter the word to check: ");
+	var z='';
+	var low=userInput.toLowerCase();
+	var length=userInput.length;
+	
+	
+	<!--reverses the word for and stores it in a new variable-->
+	for(var i=userInput.length-1;i>=0;i--){
+	  console.log(i);
+	  
+	  z+=low[i];
+	  console.log(z);
+	  
+	}
+	
+	<!-- Decides where to display the answer based on user input-->
+	
+	if(document.getElementById('alert').checked){
+	val=document.getElementById('alert').value;
+	}
+	else if(document.getElementById('page').checked){
+	val=document.getElementById('page').value;
+	
+	}
+	if(z==low){
+		if(val=="alert"){
+	 document.getElementById("result").innerHTML="";
+	 alert("You win. It's a palindrome");
+	 }
+	    else if(val=="page"){document.getElementById("result").innerHTML="You win. It's a palindrome.";}
+	 
+	}else  {
+		if(val=="alert"){
+		document.getElementById("result").innerHTML="";
+		alert("It's not a palindrome");	
+		
+		}else if(val=="page"){
+	document.getElementById("result").innerHTML="It's not a palindrome.";}
+	}
+}	
+</script>
+</head>
+<body>
+<h1>Palindrome Checker</h1>
+<p id="explain">Click on the button to enter a word. The function will check if it's a palindrome.</p>
+<form action="" defaultValue="alert">
+<h5>Where do you want the answer to appear</h5>
+<input type="radio" name="output" value="page" id="page" checked="checked">On The Page<br>
+<input type="radio" name="output" value="alert" id="alert">Alert Box<br>
+
+<br>
+<button type="button" onclick="checkPalindrome()">Start!</button>
+<p id="result"></p>
+</form>
+<p id="result"></p>
+
+</body>
+</html>
